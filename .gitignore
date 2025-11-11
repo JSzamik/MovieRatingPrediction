@@ -1,0 +1,26 @@
+# R history files
+.Rhistory
+.Rapp.history
+
+# R data files
+.RData
+.Ruserdata
+
+# RStudio files
+.Rproj.user/
+*.Rproj
+
+# Shiny / Posit deployment folder
+rsconnect/
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+*.bak
