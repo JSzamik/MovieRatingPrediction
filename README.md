@@ -1,23 +1,24 @@
-# 🎬 Movie Rating Predictor
+# Movie Rating Predictor
 
-**Live Demo:** 👉 [https://jszamik.shinyapps.io/MoviesRatingPrediction](https://jszamik.shinyapps.io/MoviesRatingPrediction)
+**Live Demo:**  
+https://jszamik.shinyapps.io/MoviesRatingPrediction
 
-An interactive **Shiny web application** that predicts a movie’s rating based on features such as budget, runtime, year, genre, and number of votes.  
-The predictive model is built using a **Random Forest** algorithm in R.
-
----
-
-## 🌟 Features
-
-- 🎯 Real-time movie rating predictions  
-- 🧠 Machine learning model (Random Forest)  
-- 💡 User-friendly Shiny interface with a modern dark theme  
-- 📊 Model evaluation metrics (RMSE, MAE) available in the training script  
-- ⚙️ Clean modular project structure (training + app separated)
+Interactive Shiny web application that predicts a movie’s rating based on selected features such as budget, runtime, year, genre and number of votes.  
+The predictive model is built using a Random Forest algorithm in R.
 
 ---
 
-## 🖼️ Screenshots
+## Features
+
+- Real-time movie rating predictions  
+- Random Forest machine learning model  
+- Shiny interface with dark theme  
+- Model evaluation metrics (RMSE, MAE) available in the training script  
+- Separate training and application scripts  
+
+---
+
+## Screenshots
 
 ### Main App View
 ![Movie Rating Predictor UI](images/screenshot_app.png)
@@ -25,158 +26,160 @@ The predictive model is built using a **Random Forest** algorithm in R.
 ### Model Training Example
 ![Random Forest Evaluation](images/training_results.png)
 
+---
+
+## Tech Stack
+
+- R + Shiny – interactive web application framework  
+- randomForest – machine learning model  
+- bslib – UI theming  
+- dplyr, Metrics – data preparation and evaluation  
 
 ---
 
-## 🧩 Tech Stack
-
-- **R + Shiny** — interactive web app framework  
-- **randomForest** — machine learning model  
-- **bslib** — UI theming with Bootswatch  
-- **dplyr, Metrics** — data cleaning and evaluation utilities  
-
----
-
-## 📂 Project Structure
+## Project Structure
 
 ```
 project/
-├── app.R              # Shiny app for movie rating prediction
-├── train_model.R      # Script for training and saving the Random Forest model
+├── app.R              # Shiny application
+├── train_model.R      # Model training and saving script
 ├── model/             # Saved model files (.rds)
 │   ├── model_rf.rds
 │   └── genre_levels.rds
-├── images/            # Screenshots used in README
+├── images/            # Screenshots for README
 └── .gitignore
 ```
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation and Setup
 
-### 1️⃣ Clone the repository
+### 1. Clone the repository
+
 ```bash
 git clone https://github.com/<your-username>/MoviesRatingPrediction.git
 cd MoviesRatingPrediction
 ```
 
-### 2️⃣ Install required R packages
+### 2. Install required packages
+
 ```r
 install.packages(c("shiny", "randomForest", "bslib", "dplyr", "Metrics"))
 ```
 
-### 3️⃣ Train the model
-If you don’t have the model yet, run:
+### 3. Train the model
+
+If the model files are not available, run:
+
 ```r
 source("train_model.R")
 ```
-This will:
-- Load and clean your dataset  
-- Train a Random Forest model  
-- Save the model and genre levels to the `model/` folder
 
-### 4️⃣ Run the Shiny app locally
+This script:
+- loads and prepares the dataset  
+- trains the Random Forest model  
+- saves the model and genre levels to the `model/` directory  
+
+### 4. Run the application locally
+
 ```r
 shiny::runApp("app.R")
 ```
-The app will open automatically in your browser.
+
+The application will open in your default browser.
 
 ---
 
-## 🧠 Model Information
+## Model Information
 
-The Random Forest model was trained and tested on the **[Movies Dataset by Daniel Grijalva](https://www.kaggle.com/datasets/danielgrijalvas/movies)** available on Kaggle.  
-This dataset contains metadata about thousands of movies, including their ratings, budgets, genres, and popularity metrics.
+The Random Forest model was trained using the Movies Dataset by Daniel Grijalva available on Kaggle.
 
-### 📊 Dataset Overview
+Dataset link:  
+https://www.kaggle.com/datasets/danielgrijalvas/movies
+
+The dataset includes movie metadata such as ratings, budgets, genres and popularity indicators.
+
+### Dataset Overview
+
 | Column | Description |
-|---------|-------------|
-| `name` | Movie title |
-| `rating` | IMDB-like score (target variable) |
-| `genre` | Movie genre |
-| `year` | Release year |
-| `released` | Release date |
-| `score` | Average rating (used as `score` in training) |
-| `votes` | Number of votes |
-| `budget` | Production budget (USD) |
-| `gross` | Worldwide gross revenue (USD) |
-| `runtime` | Duration in minutes |
+|--------|-------------|
+| name   | Movie title |
+| rating | MPAA rating |
+| genre  | Movie genre |
+| year   | Release year |
+| released | Release date |
+| score  | Average rating (target variable) |
+| votes  | Number of votes |
+| budget | Production budget (USD) |
+| gross  | Worldwide gross revenue (USD) |
+| runtime | Duration in minutes |
 
-For model training, only the following columns were used:
+The following variables were used for model training:
+
 score, budget, runtime, year, genre, votes
-The dataset was split into:
-- **80% training set**
-- **20% test set**
 
-Evaluation metrics on the test set:
-- **RMSE** (Root Mean Squared Error)  
-- **MAE** (Mean Absolute Error)
+Data split:
+- 80% training set  
+- 20% test set  
 
----
+Evaluation metrics calculated on the test set:
+- RMSE (Root Mean Squared Error)  
+- MAE (Mean Absolute Error)  
 
-Predictions are bounded between **1 and 10** to match the movie rating scale.
-
----
-
-## 🚀 Deployment
-
-The application is deployed on **[shinyapps.io](https://www.shinyapps.io/)** (Posit Cloud).  
-You can access it here:  
-👉 [https://jszamik.shinyapps.io/MoviesRatingPrediction](https://jszamik.shinyapps.io/MoviesRatingPrediction)
+Predictions are bounded between 1 and 10 to match the rating scale.
 
 ---
 
-## 🗂️ .gitignore Highlights
+## Deployment
+
+The application is deployed on shinyapps.io and available at:
+
+https://jszamik.shinyapps.io/MoviesRatingPrediction
+
+---
+
+## .gitignore (selected entries)
 
 ```gitignore
 .Rhistory
 .Rapp.history
 
-# R data files
 .RData
 .Ruserdata
 
-# RStudio files
 .Rproj.user/
 *.Rproj
 
-# Shiny / Posit deployment folder
 rsconnect/
 
-# Logs
 *.log
-
-# System files
 .DS_Store
 Thumbs.db
 
-# Temporary files
 *.tmp
 *.swp
 *.bak
-
 ```
 
 ---
 
-## 🧭 Future Improvements
+## Future Improvements
 
-- 📈 Add feature importance visualization from Random Forest  
-- 💬 Include model diagnostics (residuals, variable importance)  
-- 📁 Add option to upload user datasets for prediction  
-- 🌍 Add multilingual support (English / Polish)
-
----
-
-## 🏷️ License
-
-This project is released under the **MIT License**.  
-You are free to use, modify, and distribute it for educational or research purposes.
+- Feature importance visualization  
+- Additional model diagnostics  
+- Option to upload custom datasets  
+- Multilingual interface  
 
 ---
 
-## 👨‍💻 Author
+## License
 
-Developed by **Jakub Szamik**  
-📧 [szamikjakub@gmail.com]  
-🌐 [https://jszamik.shinyapps.io/MoviesRatingPrediction](https://jszamik.shinyapps.io/MoviesRatingPrediction)
+This project is released under the MIT License.
+
+---
+
+## Author
+
+Jakub Szamik  
+szamikjakub@gmail.com  
+https://jszamik.shinyapps.io/MoviesRatingPrediction
