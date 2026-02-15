@@ -6,7 +6,6 @@ https://jszamik.shinyapps.io/MoviesRatingPrediction
 Interactive Shiny web application that predicts a movie’s rating based on selected features such as budget, runtime, year, genre and number of votes.  
 The predictive model is built using a Random Forest algorithm in R.
 
----
 
 ## Features
 
@@ -16,7 +15,6 @@ The predictive model is built using a Random Forest algorithm in R.
 - Model evaluation metrics (RMSE, MAE) available in the training script  
 - Separate training and application scripts  
 
----
 
 ## Screenshots
 
@@ -26,8 +24,6 @@ The predictive model is built using a Random Forest algorithm in R.
 ### Model Training Example
 ![Random Forest Evaluation](images/training_results.png)
 
----
-
 ## Tech Stack
 
 - R + Shiny – interactive web application framework  
@@ -35,7 +31,6 @@ The predictive model is built using a Random Forest algorithm in R.
 - bslib – UI theming  
 - dplyr, Metrics – data preparation and evaluation  
 
----
 
 ## Project Structure
 
@@ -50,7 +45,6 @@ project/
 └── .gitignore
 ```
 
----
 
 ## Installation and Setup
 
@@ -88,7 +82,7 @@ shiny::runApp("app.R")
 
 The application will open in your default browser.
 
----
+
 
 ## Model Information
 
@@ -128,7 +122,7 @@ Evaluation metrics calculated on the test set:
 
 Predictions are bounded between 1 and 10 to match the rating scale.
 
----
+
 
 ## Deployment
 
@@ -136,7 +130,7 @@ The application is deployed on shinyapps.io and available at:
 
 https://jszamik.shinyapps.io/MoviesRatingPrediction
 
----
+
 
 ## .gitignore (selected entries)
 
@@ -161,7 +155,7 @@ Thumbs.db
 *.bak
 ```
 
----
+
 
 ## Future Improvements
 
@@ -170,13 +164,13 @@ Thumbs.db
 - Option to upload custom datasets  
 - Multilingual interface  
 
----
+
 
 ## License
 
 This project is released under the MIT License.
 
----
+
 
 ## Author
 
